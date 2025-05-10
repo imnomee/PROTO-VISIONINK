@@ -1,68 +1,49 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars that might affect layout */
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+#root {
+    /* If your main App component is within a #root div */
+    height: 100%;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+/* For smaller screens (e.g., phones) */
+@media (max-width: 768px) {
+    /* Apply mobile-specific styles here */
+    #root > div {
+        margin-top: 10px;
+    }
+    /* You might need to adjust the CameraView dimensions or layout */
+    .camera-view-container {
+        /* Example: make it take full viewport width and a portion of the height */
+        width: 100vw;
+        height: 50vh;
+    }
+    video,
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* For larger screens (e.g., tablets or desktops) */
+@media (min-width: 769px) {
+    /* Apply desktop/tablet-specific styles here */
+    #root > div {
+        margin-top: 20px;
+    }
+    .camera-view-container {
+        width: 80%; /* Example */
+        max-width: 600px;
+        height: auto;
+    }
+    video,
+    canvas {
+        width: 100%;
+        height: auto;
+    }
 }
